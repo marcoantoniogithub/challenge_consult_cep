@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">challenge_consult_cep</string>
+    <string name="search_cep_here">Busque CEP aqui</string>
+    <string name="label_cep">CEP</string>
+    <string name="label_state">ESTADO</string>
+    <string name="label_city">CIDADE</string>
+    <string name="label_neighborhood">BAIRRO</string>
+    <string name="label_address">RUA</string>
 </resources>

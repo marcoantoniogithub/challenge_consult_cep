@@ -1,13 +1,24 @@
 package com.example.challenge_consult_cep
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.example.challenge_consult_cep.core.di.CoreModule
+import com.example.challenge_consult_cep.feature.search_cep.di.SearchCepModule
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
-@HiltAndroidApp
 class MainApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
+        startKoin {
+            androidContext(this@MainApplication)
+            modules(
+                listOf(
+                    SearchCepModule.instance,
+                    CoreModule.instance
+                )
+            )
+        }
     }
 }

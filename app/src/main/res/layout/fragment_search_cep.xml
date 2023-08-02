@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/xxx_large_space"
+        android:text="@string/search_cep_here"
+        android:textAlignment="center"
+        android:textSize="@dimen/title"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/input_cep"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/x_large_space"
+        android:layout_marginTop="@dimen/xx_large_space"
+        android:layout_marginEnd="@dimen/x_large_space"
+        android:background="@drawable/edit_text_border"
+        android:inputType="number"
+        android:maxLength="8"
+        android:padding="@dimen/medium_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="
+         label_cep, txt_cep,
+         label_state, txt_state,
+         label_city, txt_city,
+         label_neighborhood, txt_neighborhood,
+         label_address, txt_address"
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/user_list_progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_cep"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <TextView
+        android:id="@+id/label_cep"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_large_space"
+        android:layout_marginTop="@dimen/xx_large_space"
+        android:layout_marginEnd="@dimen/medium_space"
+        android:text="@string/label_cep"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/txt_cep"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_cep" />
+
+    <TextView
+        android:id="@+id/txt_cep"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_space"
+        android:layout_marginTop="@dimen/xx_large_space"
+        android:layout_marginEnd="@dimen/xx_large_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/label_cep"
+        app:layout_constraintTop_toBottomOf="@id/input_cep" />
+
+    <TextView
+        android:id="@+id/label_state"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_large_space"
+        android:layout_marginTop="@dimen/xx_large_space"
+        android:layout_marginEnd="@dimen/medium_space"
+        android:text="@string/label_state"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/txt_state"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_cep" />
+
+    <TextView
+        android:id="@+id/txt_state"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_space"
+        android:layout_marginTop="@dimen/xx_large_space"
+        android:layout_marginEnd="@dimen/xx_large_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/label_state"
+        app:layout_constraintTop_toBottomOf="@id/label_cep" />
+
+    <TextView
+        android:id="@+id/label_city"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_large_space"
+        android:layout_marginTop="@dimen/xx_large_space"
+        android:layout_marginEnd="@dimen/medium_space"
+        android:text="@string/label_city"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/txt_city"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_state" />
+
+    <TextView
+        android:id="@+id/txt_city"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_space"
+        android:layout_marginTop="@dimen/xx_large_space"
+        android:layout_marginEnd="@dimen/xx_large_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/label_city"
+        app:layout_constraintTop_toBottomOf="@id/label_state" />
+
+    <TextView
+        android:id="@+id/label_neighborhood"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_large_space"
+        android:layout_marginTop="@dimen/xx_large_space"
+        android:layout_marginEnd="@dimen/medium_space"
+        android:text="@string/label_neighborhood"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/txt_neighborhood"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_city" />
+
+    <TextView
+        android:id="@+id/txt_neighborhood"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_space"
+        android:layout_marginTop="@dimen/xx_large_space"
+        android:layout_marginEnd="@dimen/xx_large_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/label_neighborhood"
+        app:layout_constraintTop_toBottomOf="@id/label_city" />
+
+    <TextView
+        android:id="@+id/label_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/xx_large_space"
+        android:layout_marginTop="@dimen/xx_large_space"
+        android:layout_marginEnd="@dimen/medium_space"
+        android:text="@string/label_address"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/txt_address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/label_neighborhood" />
+
+    <TextView
+        android:id="@+id/txt_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_space"
+        android:layout_marginTop="@dimen/xx_large_space"
+        android:layout_marginEnd="@dimen/xx_large_space"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/label_address"
+        app:layout_constraintTop_toBottomOf="@id/label_neighborhood" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

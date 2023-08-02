@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title">32sp</dimen>
+    <dimen name="sub_title">16sp</dimen>
+    <dimen name="text">8sp</dimen>
+
+    <dimen name="small_space"> 2dp</dimen>
+    <dimen name="medium_space"> 8dp</dimen>
+    <dimen name="x_large_space"> 16dp</dimen>
+    <dimen name="xx_large_space"> 32dp</dimen>
+    <dimen name="xxx_large_space"> 48dp</dimen>
+    <dimen name="xxxx_large_space"> 64dp</dimen>
+</resources>
