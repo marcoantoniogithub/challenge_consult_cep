@@ -1,4 +1,4 @@
-package com.example.challenge_consult_cep.feature.search_cep.ui
+package com.example.challenge_consult_cep.feature.search_cep.presentation
 
 import android.os.Bundle
 import android.text.Editable

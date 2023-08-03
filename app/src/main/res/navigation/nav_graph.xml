@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/SearchCepFragment"
-        android:name="com.example.challenge_consult_cep.feature.search_cep.ui.SearchCepFragment"
-        tools:layout="@layout/fragment_search_cep"></fragment>
+        android:name="com.example.challenge_consult_cep.feature.search_cep.presentation.SearchCepFragment"
+        tools:layout="@layout/fragment_search_cep"/>
 
 </navigation>

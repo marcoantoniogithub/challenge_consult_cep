@@ -11,10 +11,16 @@ class SearchCepRepositoryImpl(
 ) : SearchCepRepository{
 
     override suspend fun getCep(cep: String): Cep {
-        try {
-            return remote.getCep(cep)
+        return try {
+            local.getById(cep)
         } catch (e: Exception) {
-            throw e
+            try {
+                val response = remote.getCep(cep)
+                local.insertItem(response)
+                response
+            } catch (e: Exception) {
+                throw e
+            }
         }
     }
 }

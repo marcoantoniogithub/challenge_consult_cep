@@ -13,19 +13,21 @@ class SearchCepDataSourceRemote(
 ) {
 
     suspend fun getCep(cep: String): Cep {
-        return try {
-            return viaCepApi.getCep(cep).toCep()
+        val response = try {
+            viaCepApi.getCep(cep).toCep()
         } catch (e: Exception) {
             try {
                 val newCep = cep.substring(0, 5) + "-" + cep.substring(5, 8)
-                return apiCepApi.getCep(newCep).toCep()
+                apiCepApi.getCep(newCep).toCep()
             } catch (e: Exception) {
                 try {
-                    return awesomeApiApi.getCep(cep).toCep()
+                    awesomeApiApi.getCep(cep).toCep()
                 } catch (e: Exception) {
                     throw Exception(e)
                 }
             }
         }
+        response.code = response.code.replace("-","")
+        return response
     }
 }

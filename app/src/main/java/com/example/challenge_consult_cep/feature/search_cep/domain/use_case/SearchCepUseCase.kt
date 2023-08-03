@@ -7,5 +7,5 @@ class SearchCepUseCase(
     private val repository: SearchCepRepository
 ) {
 
-    suspend fun getUsers(cep: String): Cep = repository.getCep(cep)
+    suspend fun invoke(cep: String): Cep = repository.getCep(cep)
 }

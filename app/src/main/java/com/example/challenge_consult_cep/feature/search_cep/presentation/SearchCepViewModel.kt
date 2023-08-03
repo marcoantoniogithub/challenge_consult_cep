@@ -1,4 +1,4 @@
-package com.example.challenge_consult_cep.feature.search_cep.ui
+package com.example.challenge_consult_cep.feature.search_cep.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -19,7 +19,7 @@ class SearchCepViewModel(
         viewModelScope.launch {
             try {
                 _uiState.postValue(SearchCepUiState(loading = true))
-                val response = useCase.getUsers(cep)
+                val response = useCase.invoke(cep)
                 _uiState.postValue(SearchCepUiState(loading = false, messageError = "", cep = response))
             } catch (e: Exception) {
                 _uiState.postValue(SearchCepUiState(loading = false, messageError = "Não foi possivel completar a operação, tente mais tarde."))
