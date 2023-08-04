@@ -1,15 +1,18 @@
 package com.example.challenge_consult_cep.feature.search_cep.presentation
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.challenge_consult_cep.databinding.FragmentSearchCepBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class SearchCepFragment : Fragment() {
 
@@ -45,6 +48,10 @@ class SearchCepFragment : Fragment() {
             }
         })
 
+        binding.button.setOnClickListener {
+            searchInput()
+        }
+
         viewModel.uiState.observe(viewLifecycleOwner) { it ->
             if (it.loading) {
                 binding.userListProgressBar.visibility = View.VISIBLE
@@ -76,9 +83,26 @@ class SearchCepFragment : Fragment() {
     }
 
     fun validateCep(cep: String) {
-        if (cep.length == 8) {
-            viewModel.getCep(cep)
+        enabledButton(cep.length == 8)
+    }
+
+    fun searchInput() {
+        hideKeyboarding()
+        viewModel.getCep(binding.inputCep.text.toString())
+    }
+
+    fun hideKeyboarding() {
+        val imm =
+            requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val focusedView = requireActivity().currentFocus
+        if (focusedView != null) {
+            imm.hideSoftInputFromWindow(focusedView.windowToken, 0)
         }
+    }
+
+    fun enabledButton(enabled: Boolean): Boolean {
+        binding.button.isEnabled = enabled
+        return enabled
     }
 
     fun clearInput() {

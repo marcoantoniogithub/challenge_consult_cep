@@ -6,4 +6,5 @@
     <string name="label_city">CIDADE</string>
     <string name="label_neighborhood">BAIRRO</string>
     <string name="label_address">RUA</string>
+    <string name="search">Buscar</string>
 </resources>
